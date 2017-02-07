@@ -1,0 +1,12 @@
+git log --pretty=oneline --graph : Show the log in a pretty way
+git log 			 : Show the log in a normal way
+
+git add "~" 			 : Add files/directories to the stage
+git pull 			 : Pull from the repository to make sure no conflicts occur
+git commit -m "message" 	 : Commit files to local repository and tag its message
+git push master origin 		 : Upload your files to the remote repository
+
+git rm -r one-of-the-directories : This will remove files locally AND remotely
+git rm -r --cached myFolder 	 : Remove file from git, but not from local machine
+
+
