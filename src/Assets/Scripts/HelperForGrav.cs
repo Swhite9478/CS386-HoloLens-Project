@@ -9,6 +9,7 @@ public class HelperForGrav : MonoBehaviour
     public GameObject FocusedObject { get; private set; }
 
     GestureRecognizer recognizer;
+    Floor floor;
 
     // Use this for initialization
     void Awake()
@@ -25,6 +26,16 @@ public class HelperForGrav : MonoBehaviour
                 FocusedObject.SendMessageUpwards("OnSelect");
             }
         };
+
+        floor = FindObjectOfType<Floor>();
+        recognizer.ManipulationStartedEvent += (source, pos, ray) =>
+        {
+            if (FocusedObject != null)
+            {
+
+            }
+        }
+
         recognizer.StartCapturingGestures();
     }
 

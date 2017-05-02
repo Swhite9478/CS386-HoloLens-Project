@@ -56,6 +56,7 @@ public class SpeechManager : MonoBehaviour
 
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
+        print("Speech found: " + args.text);
         System.Action keywordAction;
         if (keywords.TryGetValue(args.text, out keywordAction))
         {
