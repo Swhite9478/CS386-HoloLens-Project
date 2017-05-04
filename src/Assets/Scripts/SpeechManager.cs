@@ -12,7 +12,7 @@ public class SpeechManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-       
+        SpatialMapping.Instance.drawVisualMeshes = false;
         keywords.Add("Cancel", () =>
         {
             this.BroadcastMessage("CancelAudio");
@@ -28,6 +28,30 @@ public class SpeechManager : MonoBehaviour
         {
             // Call the OnReset method on every descendant object.
             this.BroadcastMessage("Jack");
+        });
+
+        keywords.Add("Tilt Audio", () =>
+        {
+            // Call the OnReset method on every descendant object.
+            this.BroadcastMessage("tilt_a_ball_audio");
+        });
+
+        keywords.Add("Gaze Audio", () =>
+        {
+            // Call the OnReset method on every descendant object.
+            this.BroadcastMessage("Gaze");
+        });
+
+        keywords.Add("Voice Audio", () =>
+        {
+            // Call the OnReset method on every descendant object.
+            this.BroadcastMessage("VoiceRec");
+        });
+        
+        keywords.Add("Toggle Menu", () =>
+        {
+            // Call the OnReset method on every descendant object.
+            this.BroadcastMessage("toggleMenu");
         });
 
         keywords.Add("Reset", () =>

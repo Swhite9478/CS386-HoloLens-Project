@@ -7,10 +7,12 @@ public class addGrav : MonoBehaviour
     float rotationResetSpeed = 1.0f;
     AudioSource audioSource = null;
     AudioClip audioClip = null;
+    GameObject menu;
 
     // Use this for initialization
     void Start()
     {
+        menu = GameObject.Find("AudioMenu");
         // Grab the original local position of the sphere when the app starts.
         originalPosition = this.transform.localPosition;
         originalRotationValue = transform.rotation; // save the initial rotation
@@ -52,7 +54,7 @@ public class addGrav : MonoBehaviour
             rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
             // Add an AudioSource component and set up some defaults
-            audioSource = gameObject.AddComponent<AudioSource>();
+            /*audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
             audioSource.spatialize = true;
             audioSource.enabled = true;
@@ -63,6 +65,7 @@ public class addGrav : MonoBehaviour
             audioClip = Resources.Load<AudioClip>("Voice_Recognition");
             audioSource.clip = audioClip;
             audioSource.Play();
+            */
         }
 
     }
@@ -97,6 +100,59 @@ public class addGrav : MonoBehaviour
             audioSource.Play();*/
         }    
 
+    }
+
+    void tilt_a_ball_audio()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialize = true;
+        audioSource.enabled = true;
+        audioSource.spatialBlend = 1.0f;
+        audioSource.dopplerLevel = 0.0f;
+        audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+        audioSource.maxDistance = 20f;
+        audioClip = Resources.Load<AudioClip>("Tilt-A-Ball");
+        audioSource.clip = audioClip;
+        audioSource.Play();
+
+    }
+
+    void Gaze()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialize = true;
+        audioSource.enabled = true;
+        audioSource.spatialBlend = 1.0f;
+        audioSource.dopplerLevel = 0.0f;
+        audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+        audioSource.maxDistance = 20f;
+        audioClip = Resources.Load<AudioClip>("gaze");
+        audioSource.clip = audioClip;
+        audioSource.Play();
+
+    }
+
+    void VoiceRec()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialize = true;
+        audioSource.enabled = true;
+        audioSource.spatialBlend = 1.0f;
+        audioSource.dopplerLevel = 0.0f;
+        audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+        audioSource.maxDistance = 20f;
+        audioClip = Resources.Load<AudioClip>("Voice_Recognition");
+        audioSource.clip = audioClip;
+        audioSource.Play();
+
+    }
+
+    void toggleMenu()
+    {
+        menu.SetActive(!menu.activeSelf);
     }
 
     // Called by SpeechManager when the user says the "Drop sphere" command
